@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace coursework3.Classes
+{
+    internal class Verification
+    {
+        //public static string GetSHA512Hash(string input)
+        //{
+        //    // Создаем новый экземпляр объекта MD5CryptoServiceProvider.
+        //    SHA512CryptoServiceProvider SHA512Hasher = new SHA512CryptoServiceProvider();
+
+        //    // Преобразуем входную строку в байтовый массив и вычисляем хеш.
+        //    byte[] data = SHA512Hasher.ComputeHash(Encoding.Default.GetBytes(input));
+
+        //    // Создаем новый Stringbuilder для сбора байтов и создания строки.
+        //    StringBuilder sBuilder = new StringBuilder();
+
+        //    // Перебираем каждый байт хэшированных данных 
+        //    // и форматируем каждый как шестнадцатеричную строку.
+        //    for (int i = 0; i < data.Length; i++)
+        //    {
+        //        sBuilder.Append(data[i].ToString("x2"));
+        //    }
+
+        //    // Возвращаем шестнадцатеричную строку.
+        //    return sBuilder.ToString();
+        //}
+
+        //// Проверяет хэш (из базы данных) на соответствие строке (из поля ввода)
+        //public static bool VerifySHA512Hash(string input, string hash)
+        //{
+        //    // Хэшируем ввод.
+        //    string hashOfInput = GetSHA512Hash(input);
+
+        //    // Создаем StringComparer для сравнения хэшей.
+        //    StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+
+        //    // Сравниваем два хэша.
+        //    if (0 == comparer.Compare(hashOfInput, hash))
+        //    {
+        //        return true; // Хэши равны.
+        //    }
+        //    else
+        //    {
+        //        return false; // Не равны.
+        //    }
+        //}
+
+
+
+        public static string HashPassword(string password)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(password);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Конвертируем байты в HEX-строку
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2")); // x2 - формат в 16-ричной системе
+                }
+                return sb.ToString();
+            }
+        }
+
+        // Метод для проверки пароля
+        public static bool VerifyPassword(string inputPassword, string storedHash)
+        {
+            return inputPassword.Equals(storedHash, StringComparison.OrdinalIgnoreCase);
+        }
+
+    }
+}

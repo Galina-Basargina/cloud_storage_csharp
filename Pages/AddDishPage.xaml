@@ -1,0 +1,104 @@
+﻿<Page x:Class="coursework3.Pages.AddDishPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:coursework3.Pages" xmlns:classes="clr-namespace:coursework3.Classes" 
+      d:DataContext="{d:DesignInstance Type=classes:Dish}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddDishPage">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <!-- Разделитель -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая часть -->
+        <StackPanel Grid.Column="0">
+            <!-- Кнопка назад -->
+            <Button Content="← Назад" 
+                    HorizontalAlignment="Left" 
+                    Margin="0,0,0,10"
+                    Click="BackButton_Click"/>
+
+            <!-- Поля ввода -->
+            <TextBlock Text="Название блюда:"/>
+            <TextBox x:Name="DishNameTextBox" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Категория:"/>
+            <ComboBox x:Name="TypeComboBox" Margin="0,0,0,10">
+                <ComboBoxItem>Snacks</ComboBoxItem>
+                <ComboBoxItem>Soup</ComboBoxItem>
+                <ComboBoxItem>Hotter</ComboBoxItem>
+                <ComboBoxItem>Dessert</ComboBoxItem>
+                <ComboBoxItem>Drink</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Основа:"/>
+            <ComboBox x:Name="BaseComboBox" Margin="0,0,0,10">
+                <ComboBoxItem>Ovoschi</ComboBoxItem>
+                <ComboBoxItem>MyaSo</ComboBoxItem>
+                <ComboBoxItem>Riba</ComboBoxItem>
+                <ComboBoxItem>Moloko</ComboBoxItem>
+                <ComboBoxItem>YAyca</ComboBoxItem>
+                <ComboBoxItem>Krupa</ComboBoxItem>
+                <ComboBoxItem>Frukti</ComboBoxItem>
+                <ComboBoxItem>Kofe</ComboBoxItem>
+                <ComboBoxItem>Myka</ComboBoxItem>
+                <ComboBoxItem>base</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Вес блюда (г):"/>
+            <TextBox x:Name="DishWeightTextBox" 
+                     Margin="0,0,0,10"
+                     PreviewTextInput="NumberValidationTextBox"/>
+
+            <Image x:Name="img"
+                   Height="150"
+                   Width="250"
+                   Source="{Binding ImageWithPath }"/>
+            <Button Content="Выбрать изображение" 
+                    Click="SelectImageButton_Click"
+                    ToolTip="Выберите изображение блюда"
+                    Margin="0,0,0,20"/>
+        </StackPanel>
+
+        <!-- Правая часть -->
+        <StackPanel Grid.Column="2">
+            <TextBlock Text="Продукты:"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <ComboBox x:Name="ProductsComboBox" 
+                          Width="150"
+                          Margin="0,0,5,0"/>
+
+                <TextBox x:Name="ProductWeightTextBox" 
+                         Width="80"
+                         Margin="0,0,5,0"
+                         PreviewTextInput="NumberValidationTextBox"/>
+
+                <Button Content="Добавить" 
+                        Click="AddProductButton_Click"/>
+            </StackPanel>
+
+            <ListView x:Name="ProductsListView" Height="200">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding ProductName}"/>
+                        <GridViewColumn Header="Вес (г)" DisplayMemberBinding="{Binding Weight}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button Content="Добавить блюдо" 
+                    Click="AddDishButton_Click"
+                    Margin="0,10,0,0"
+                    Padding="10,5"
+                    FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Page>
