@@ -1,18 +1,10 @@
 ﻿using coursework3.Classes;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 using coursework3.Class;
-using System.Net;
-using System.Windows;
-using System.Collections;
 using System.Collections.ObjectModel;
-using coursework3.Model;
 using System.Globalization;
 
 namespace coursework3.Model
