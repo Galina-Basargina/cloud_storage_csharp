@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace coursework3.Classes
 {
@@ -23,6 +18,5 @@ namespace coursework3.Classes
             ContentType = contentType;
             UploadDate = uploadDate;
         }
-
     }
 }

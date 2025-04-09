@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:coursework3.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1000"
       Title="ProductPage">
 
     <Grid Margin="20">
@@ -126,10 +126,11 @@
                 <ScrollViewer 
                     HorizontalScrollBarVisibility="Auto" 
                     VerticalScrollBarVisibility="Auto">
-                    <StackPanel Orientation="Horizontal" Margin="0 32 0 0">
+                    <StackPanel Orientation="Horizontal" Margin="0 32 0 0" Height="570">
                         <!-- Список файлов -->
                         <ListView Name="FileListListView" 
                             Background="#FF1C1C1C" 
+                                  ScrollViewer.CanContentScroll="True"
                             Foreground="White" 
                             Grid.Row="1" 
                             HorizontalAlignment="Left"
@@ -193,7 +194,7 @@
                                     DisplayMemberBinding="{Binding ContentType}"/>
                                     <GridViewColumn Header="FileSize" 
                                     Width="150" 
-                                    DisplayMemberBinding="{Binding FileSize, StringFormat='{} {0} MB'}"/>
+                                    DisplayMemberBinding="{Binding FileSize, StringFormat='{} {0} ГБ'}"/>
                                     <GridViewColumn Header="UploadDate" 
                                     Width="150" 
                                     DisplayMemberBinding="{Binding UploadDate, StringFormat='yyyy-MM-dd HH:mm:ss'}"/>
@@ -208,13 +209,6 @@
                             Grid.Row="1" 
                             HorizontalAlignment="Left"
                             BorderThickness="0" Margin="20,0,0,0">
-
-                            <!-- Контекстное меню -->
-                            <ListView.ContextMenu>
-                                <ContextMenu>
-                                        <MenuItem Header="Удалить" Click="DeleteAuth"></MenuItem>
-                                    </ContextMenu>
-                            </ListView.ContextMenu>
 
                             <!-- Ресурсы стилей -->
                             <ListView.Resources>

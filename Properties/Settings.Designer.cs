@@ -136,5 +136,17 @@ namespace coursework3.Properties {
                 this["db_password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string db_scheme {
+            get {
+                return ((string)(this["db_scheme"]));
+            }
+            set {
+                this["db_scheme"] = value;
+            }
+        }
     }
 }

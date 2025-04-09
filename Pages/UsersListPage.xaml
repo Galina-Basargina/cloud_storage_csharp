@@ -224,7 +224,6 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            
             <!-- Вкладка со списком -->
             <ListView Name="UserListListView" 
                 Visibility="Collapsed" 
@@ -232,7 +231,8 @@
                 Background="#FF1C1C1C"
                 Foreground="White"
                 BorderThickness="0"
-                MouseDoubleClick="UserSelected">
+                MouseDoubleClick="UserSelected"
+                ScrollViewer.CanContentScroll="True">
 
                 <!-- Шаблон элементов -->
                 <ListView.ItemTemplate>
@@ -291,10 +291,10 @@
                 </ListView.ItemContainerStyle>
             </ListView>
 
-            
-            <ScrollViewer VerticalScrollBarVisibility="Auto"
+
+            <ScrollViewer Name="UserTableScroll" VerticalScrollBarVisibility="Auto"
                 HorizontalScrollBarVisibility="Disabled">
-                <WrapPanel Name="UserTablePanel" Orientation="Horizontal">
+                <WrapPanel Orientation="Horizontal">
                     <!-- Вкладка с таблицей -->
                     <ListView Name="UserTableListView" 
                         Background="#FF1C1C1C" 
@@ -363,7 +363,7 @@
                                 DisplayMemberBinding="{Binding FileCount}"/>
                                 <GridViewColumn Header="Объем хранилища" 
                                 Width="150" 
-                                DisplayMemberBinding="{Binding AllFileSize, StringFormat='{} {0} MB'}"/>
+                                DisplayMemberBinding="{Binding AllFileSize, StringFormat='{} {0} ГБ'}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -383,7 +383,7 @@
                 </WrapPanel>
             </ScrollViewer>
 
-            
+
             <!-- Вкладка со карточками -->
             <ScrollViewer VerticalScrollBarVisibility="Auto" 
                 HorizontalScrollBarVisibility="Disabled"
@@ -475,11 +475,6 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
-            
-            
         </Grid>
-
-
-        
     </Grid>
 </Page>

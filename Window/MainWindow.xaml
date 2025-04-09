@@ -20,18 +20,6 @@
             <TextBlock Text="Cloud Storage" Foreground="#FFE0E0E0" FontSize="20" RenderTransformOrigin="0.697,0.943" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontWeight="Bold"/>
         </StackPanel>
 
-
-        <Frame Grid.Column="1" x:Name="dishFrame" NavigationUIVisibility="Hidden"/>
-
-        <Grid x:Name="GridLoad" Background="#99000000"  Grid.Column="1" Visibility="Collapsed">
-            <Image gif:ImageBehavior.AnimatedSource="/Images/loading.gif"></Image>
-        </Grid>
-
-
-        <!--<Frame x:Name="productFrame"/>
-
-
-        <Frame x:Name="receptFrame"/>-->
-
+        <Frame Grid.Column="1" x:Name="Page" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
