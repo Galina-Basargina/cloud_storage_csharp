@@ -79,7 +79,7 @@ namespace coursework3.Model
         {
             if (DateTime.TryParseExact(
                 date,
-                "dd.MM.yyyy HH:mm:ss.fff",
+                "dd.MM.yyyy HH:mm:ss",
                 CultureInfo.InvariantCulture,
                 DateTimeStyles.None,
                 out DateTime result))

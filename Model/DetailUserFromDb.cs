@@ -19,9 +19,9 @@ namespace coursework3.Model
 
             string sqlQuery = 
                 "select logged_at from auth where logged_in = @logged_in " +
-                "order by logged_in desc;";
+                "order by logged_at desc;";
             NpgsqlCommand cmd = new NpgsqlCommand(sqlQuery, connection);
-            cmd.Parameters.AddWithValue("owner", user);
+            cmd.Parameters.AddWithValue("logged_in", user);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
                 while (reader.Read())
@@ -59,7 +59,7 @@ namespace coursework3.Model
         {
             if (DateTime.TryParseExact(
                 date,
-                "dd.MM.yyyy HH:mm:ss.fff",
+                "dd.MM.yyyy HH:mm:ss",
                 CultureInfo.InvariantCulture,
                 DateTimeStyles.None,
                 out DateTime result))

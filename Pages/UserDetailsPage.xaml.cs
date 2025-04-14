@@ -54,9 +54,8 @@ namespace coursework3.Pages
         private void onLogoff(object sender, RoutedEventArgs e)
         {
             detailUserFromDb.DeleteAuth(user.UserId);
-
-            auths = new ObservableCollection<Auth>();
-            AuthListListView.ItemsSource = auths;
+            AuthListListView.ItemsSource = new ObservableCollection<Auth>();
+            TextBoxCurrentSession.Text = "Не сохранено";
         }
     }
 }
